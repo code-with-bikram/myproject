@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}Profile{% endblock %}
+{% block content %}
+{% if profile %}
+            <div class="container"> 
+		    <br>
+		    <center>
+                     <img src="{{ profile.photo.url }}" class="img-circle" alt="Cinque Terre" width="304" height="304"/>
+		    </center>
+		    <br>
+		    <center>
+		    <button>
+		    <a href="{% url "logout" %}">log out</a>
+		    </button>
+		    </center>
+		    <br>
+	    <h6>name={{ user.first_name }} {{ user.last_name }}</h6>
+	    <h6>date of birth={{ profile.date_of_birth }}</h6>
+	    <h6>email={{ user.email }}</h6>
+	    <p><a href="{% url "edit" %}">edit your profile</a> or 
+	    <a href="{% url "password_change" %}">change your password</a></p>
+	    </div>
+
+    {% endif %}
+{% endblock %}
